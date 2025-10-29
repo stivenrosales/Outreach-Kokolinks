@@ -198,7 +198,7 @@ Los datos se envían al webhook de n8n cuando haces clic en "Enviar a Sheet". No
 
 ### ¿Cuánto cuesta usar la API de OpenAI?
 
-GPT-4o tiene un costo por token. Cada correo procesado cuesta aproximadamente $0.01-0.05 USD. Verifica los precios actuales en OpenAI.
+GPT-5-mini tiene un costo por token. Cada correo procesado cuesta aproximadamente $0.01-0.05 USD. Verifica los precios actuales en OpenAI.
 
 ### ¿Funciona sin internet?
 
@@ -236,7 +236,7 @@ lsof -ti:3000 | xargs kill
 
 - Verifica que tu API Key sea válida
 - Asegúrate de tener créditos en tu cuenta
-- Revisa que tengas acceso a GPT-4o
+- Revisa que tengas acceso a GPT-5-mini
 
 ---
 

@@ -1,6 +1,6 @@
 # 🚀 Outreach Kokolinks
 
-Sistema automatizado de procesamiento de correos de outreach con Inteligencia Artificial (OpenAI GPT-4o).
+Sistema automatizado de procesamiento de correos de outreach con Inteligencia Artificial (OpenAI GPT-5-mini).
 
 ## 📋 Tabla de Contenidos
 
@@ -16,7 +16,7 @@ Sistema automatizado de procesamiento de correos de outreach con Inteligencia Ar
 
 ## ✨ Características
 
-- 🤖 **Procesamiento con IA**: Utiliza GPT-4o para analizar correos y generar respuestas contextuales
+- 🤖 **Procesamiento con IA**: Utiliza GPT-5-mini para analizar correos y generar respuestas contextuales
 - 🌲 **Árbol de Decisión**: Implementa 7 casos de uso diferentes según el contenido del correo
 - 🎯 **Extracción Automática**: Extrae 8 campos de datos importantes del correo
 - ✏️ **Campos Editables**: Permite corregir o completar información antes de enviar
@@ -28,7 +28,7 @@ Sistema automatizado de procesamiento de correos de outreach con Inteligencia Ar
 
 - Node.js v16 o superior
 - npm o yarn
-- Clave API de OpenAI con acceso a GPT-4o
+- Clave API de OpenAI con acceso a GPT-5-mini
 - Navegador web moderno
 
 ## 🛠 Instalación
@@ -301,7 +301,7 @@ Health check del servidor.
 - **JavaScript (Vanilla)**: Lógica del cliente
 
 ### IA
-- **OpenAI GPT-4o**: Modelo de lenguaje
+- **OpenAI GPT-5-mini**: Modelo de lenguaje
 
 ### Integración
 - **n8n Webhook**: Para envío de datos
@@ -318,7 +318,7 @@ Health check del servidor.
 
 1. Verifica que tu API Key sea válida
 2. Asegúrate de tener créditos en tu cuenta de OpenAI
-3. Revisa que tengas acceso al modelo GPT-4o
+3. Revisa que tengas acceso al modelo GPT-5-mini
 
 ### Error al enviar al webhook
 

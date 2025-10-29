@@ -38,22 +38,22 @@ Guarda el valor real de `OPENAI_API_KEY` en tu archivo `.env` (no versionado). N
 
 ---
 
-## ✅ 3. Modelo Actualizado a GPT-4o-mini
+## ✅ 3. Modelo Actualizado a GPT-5-mini
 
 ### Cambio Realizado
-- ❌ **Antes**: `gpt-4o`
-- ✅ **Ahora**: `gpt-4o-mini`
+- ❌ **Antes**: `gpt-4o-mini`
+- ✅ **Ahora**: `gpt-5-mini`
 
 ### Ubicación del Cambio
 Archivo: `src/config/openai.js`
 ```javascript
-const MODEL = 'gpt-4o-mini';
+const MODEL = 'gpt-5-mini';
 ```
 
 ### Beneficios
-- 💰 Más económico
-- ⚡ Más rápido
-- ✅ Sigue siendo muy preciso
+- 💪 Mayor capacidad de comprensión contextual
+- 💰 Mantiene costos optimizados dentro de la familia mini
+- ⚡ Respuestas más consistentes y rápidas
 
 ---
 
@@ -134,7 +134,7 @@ const MODEL = 'gpt-4o-mini';
 
 ### Backend
 1. **`.env`** - API Key configurada
-2. **`src/config/openai.js`** - Modelo cambiado a gpt-4o-mini + campo link_insertion
+2. **`src/config/openai.js`** - Modelo actualizado a gpt-5-mini + campo link_insertion
 3. **`src/controllers/emailController.js`** - Usa API Key del servidor
 
 ### Frontend
@@ -184,7 +184,7 @@ La API Key está configurada en el servidor (archivo `.env`)
 - [x] Campo `link_insertion` agregado
 - [x] API Key movida a `.env`
 - [x] API Key configurada con tu clave
-- [x] Modelo cambiado a `gpt-4o-mini`
+- [x] Modelo cambiado a `gpt-5-mini`
 - [x] UI actualizada con colores oscuros
 - [x] Tipografía cambiada a Inter
 - [x] Layout modernizado
@@ -199,7 +199,7 @@ La API Key está configurada en el servidor (archivo `.env`)
 | Característica | Antes | Ahora |
 |----------------|-------|-------|
 | **API Key** | Input en web | Configurada en servidor |
-| **Modelo** | gpt-4o | gpt-4o-mini |
+| **Modelo** | gpt-4o-mini | gpt-5-mini |
 | **Campos** | 8 campos | 9 campos (+ link_insertion) |
 | **Colores** | Gradiente morado/azul | Oscuro verde-azulado |
 | **Tipografía** | Sistema | Inter (Google Fonts) |
@@ -219,10 +219,10 @@ La API Key está configurada en el servidor (archivo `.env`)
 - Por defecto es "dofollow"
 - Puedes editarlo manualmente antes de enviar
 
-### Modelo GPT-4o-mini
-- Es más rápido y económico que gpt-4o
-- Mantiene alta calidad en las respuestas
-- Perfecto para este tipo de tareas
+### Modelo GPT-5-mini
+- Ofrece mejores respuestas que gpt-4o-mini sin sacrificar costos
+- Mantiene alta calidad en español y análisis de contexto
+- Ideal para flujos de outreach automatizados
 
 ---
 
