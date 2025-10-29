@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/stivenkevinrosalescasas/Downloads/**)",
+      "Bash(npm install)",
+      "Bash(npm start)",
+      "Bash(open http://localhost:3000)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

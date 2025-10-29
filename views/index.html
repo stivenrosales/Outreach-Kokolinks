@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema automatizado de procesamiento de correos de outreach con IA">
+    <meta name="author" content="Kokolinks">
+    <title>Outreach Kokolinks - Procesador de Correos con IA</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Outreach Kokolinks</h1>
+            <p>Sistema Automatizado de Procesamiento de Correos con Inteligencia Artificial</p>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Alertas -->
+            <div id="alert" class="alert"></div>
+
+            <!-- Sección 1: Entrada de Email -->
+            <div class="section">
+                <h2 class="section-title">Pegar Correo Recibido</h2>
+                <div class="form-group">
+                    <label for="emailInput">
+                        Correo Completo
+                    </label>
+                    <textarea
+                        id="emailInput"
+                        rows="14"
+                        placeholder="De: ejemplo@dominio.com&#10;Para: contacto@kokolinks.com&#10;Asunto: Consulta sobre colaboración&#10;&#10;Hola,&#10;&#10;Me gustaría saber más sobre...&#10;&#10;Saludos"
+                    ></textarea>
+                    <small style="display: block; margin-top: 8px;">
+                        Presiona Ctrl + Enter para procesar rápidamente
+                    </small>
+                </div>
+
+                <button
+                    class="button button-primary"
+                    id="processBtn"
+                >
+                    Procesar con IA
+                </button>
+            </div>
+
+            <!-- Loader -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Procesando correo con Inteligencia Artificial...</p>
+                <small style="color: #6b7280; margin-top: 10px;">Esto puede tardar unos segundos</small>
+            </div>
+
+            <!-- Sección 2: Respuesta Generada -->
+            <div class="section hidden" id="responseSection">
+                <h2 class="section-title">Respuesta Generada por IA</h2>
+                <div class="form-group">
+                    <label for="responseBody">
+                        Cuerpo de Respuesta (editable)
+                    </label>
+                    <textarea
+                        id="responseBody"
+                        rows="18"
+                        placeholder="La respuesta generada aparecerá aquí..."
+                    ></textarea>
+                </div>
+                <button
+                    class="button button-secondary"
+                    onclick="copyResponse()"
+                    style="width: auto;"
+                >
+                    Copiar Respuesta
+                </button>
+            </div>
+
+            <!-- Sección 3: Datos Extraídos -->
+            <div class="section hidden" id="extractedDataSection">
+                <h2 class="section-title">Información Extraída</h2>
+
+                <!-- Información de Contacto -->
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="domain">Dominio</label>
+                        <input
+                            type="text"
+                            id="domain"
+                            placeholder="ejemplo.com"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="senderEmail">Correo del Emisor *</label>
+                        <input
+                            type="text"
+                            id="senderEmail"
+                            placeholder="emisor@dominio.com"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="senderEmail2">Correo del Emisor 2 (opcional)</label>
+                        <input
+                            type="text"
+                            id="senderEmail2"
+                            placeholder="emisor2@dominio.com"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="kokolinksEmail">Email de Kokolinks</label>
+                        <input
+                            type="text"
+                            id="kokolinksEmail"
+                            placeholder="contacto@kokolinks.com"
+                        >
+                    </div>
+                </div>
+
+                <!-- Precios por Categoría -->
+                <div class="form-group">
+                    <label style="font-size: 15px; margin-bottom: 15px;">
+                        Precios por Categoría (0 si no acepta)
+                    </label>
+                    <div class="price-grid">
+                        <div class="price-item">
+                            <label for="priceAdult">
+                                Adult
+                            </label>
+                            <input
+                                type="number"
+                                id="priceAdult"
+                                value="0"
+                                min="0"
+                                step="1"
+                                style="margin-top: 8px;"
+                            >
+                        </div>
+                        <div class="price-item">
+                            <label for="priceIgaming">
+                                iGaming
+                            </label>
+                            <input
+                                type="number"
+                                id="priceIgaming"
+                                value="0"
+                                min="0"
+                                step="1"
+                                style="margin-top: 8px;"
+                            >
+                        </div>
+                        <div class="price-item">
+                            <label for="priceCrypto">
+                                Crypto/Forex
+                            </label>
+                            <input
+                                type="number"
+                                id="priceCrypto"
+                                value="0"
+                                min="0"
+                                step="1"
+                                style="margin-top: 8px;"
+                            >
+                        </div>
+                        <div class="price-item">
+                            <label for="priceCBD">
+                                CBD
+                            </label>
+                            <input
+                                type="number"
+                                id="priceCBD"
+                                value="0"
+                                min="0"
+                                step="1"
+                                style="margin-top: 8px;"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configuraciones -->
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="sponsored">Sponsored</label>
+                        <select id="sponsored">
+                            <option value="">-- Seleccionar --</option>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="linkInsertion">Link Insertion</label>
+                        <select id="linkInsertion">
+                            <option value="">-- Seleccionar --</option>
+                            <option value="dofollow">Dofollow</option>
+                            <option value="nofollow">Nofollow</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="outreach">Outreach Status</label>
+                        <select id="outreach">
+                            <option value="">-- Seleccionar --</option>
+                            <option value="Available">Available</option>
+                            <option value="Unavailable">Unavailable</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Notas -->
+                <div class="form-group">
+                    <label for="notes">Notas</label>
+                    <textarea
+                        id="notes"
+                        rows="4"
+                        placeholder="Notas adicionales sobre el contacto, condiciones especiales, etc..."
+                    ></textarea>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="buttons-row">
+                    <button
+                        class="button button-primary"
+                        id="sendBtn"
+                    >
+                        Enviar a Sheet
+                    </button>
+                    <button
+                        class="button button-secondary"
+                        onclick="resetForm()"
+                    >
+                        Limpiar Formulario
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Info -->
+        <div class="footer">
+            <p>
+                <strong>Outreach Kokolinks</strong> - Sistema de Procesamiento Automático
+            </p>
+            <p>
+                Powered by OpenAI GPT-4o-mini | v1.0.0
+            </p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/app.js"></script>
+</body>
+</html>
